@@ -1,3 +1,11 @@
-// run `node index.js` in the terminal
+const express = require("express");
+const userRouter = require("./src/routes/users");
+const app = express();
 
-console.log(`Hello Node.js v${process.versions.node}!`);
+const port = 4000;
+
+app.use("/api/users/", userRouter);
+
+app.listen(port, () => {
+  console.log(`Sandbox listening on port ${port}`);
+});
